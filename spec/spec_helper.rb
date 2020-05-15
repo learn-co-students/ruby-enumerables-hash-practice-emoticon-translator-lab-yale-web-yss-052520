@@ -1,4 +1,4 @@
-require_relative "../lib/translator.rb"
+require_relative '../lib/translator.rb'
 
 RSpec.configure do |config|
   # config here
