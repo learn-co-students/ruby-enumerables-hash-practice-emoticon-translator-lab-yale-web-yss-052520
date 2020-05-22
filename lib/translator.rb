@@ -22,10 +22,28 @@ def load_library(file_name)
   #binding.pry
 end
 
-def get_japanese_emoticon
-  # code goes here
+def get_japanese_emoticon(file_name, english_face)
+  final_hash = load_library(file_name)
+  final_hash.each do |name, faces_hash|
+    final_hash[name].each do |language, face|
+      if english_face == face
+        #binding.pry
+        return final_hash[name][:japanese]
+      end
+    end
+  end
+  return "Sorry, that emoticon was not found"
 end
 
-def get_english_meaning
-  # code goes here
+def get_english_meaning(file_name, japanese_face)
+  final_hash = load_library(file_name)
+  final_hash.each do |name, faces_hash|
+    #binding.pry
+    final_hash[name].each do |language, face|
+      if face == japanese_face
+        return name
+      end
+    end
+  end
+  return "Sorry, that emoticon was not found"
 end
